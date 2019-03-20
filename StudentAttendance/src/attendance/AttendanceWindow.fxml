@@ -1,0 +1,45 @@
+<?xml version="1.0" encoding="UTF-8"?>
+
+<?import javafx.geometry.Insets?>
+<?import javafx.scene.control.Button?>
+<?import javafx.scene.control.DatePicker?>
+<?import javafx.scene.control.TableColumn?>
+<?import javafx.scene.control.TableView?>
+<?import javafx.scene.layout.BorderPane?>
+<?import javafx.scene.layout.HBox?>
+<?import javafx.scene.layout.Region?>
+
+<BorderPane maxHeight="400.0" maxWidth="600.0" minHeight="400.0" minWidth="600.0" prefHeight="400.0" prefWidth="600.0" xmlns="http://javafx.com/javafx/9.0.1" xmlns:fx="http://javafx.com/fxml/1" fx:controller="attendance.AttendanceWindowController">
+   <bottom>
+      <HBox BorderPane.alignment="CENTER">
+         <children>
+            <DatePicker fx:id="datePicker" onAction="#refreshTable" promptText="pick a date">
+               <HBox.margin>
+                  <Insets bottom="3.0" left="15.0" right="3.0" top="3.0" />
+               </HBox.margin>
+            </DatePicker>
+            <Region HBox.hgrow="ALWAYS" />
+            <Button mnemonicParsing="false" onAction="#saveAttendance" text="Save">
+               <HBox.margin>
+                  <Insets bottom="3.0" left="3.0" right="3.0" top="3.0" />
+               </HBox.margin>
+            </Button>
+            <Button mnemonicParsing="false" onAction="#savePdf" text="Save as PDF">
+               <HBox.margin>
+                  <Insets bottom="3.0" left="3.0" right="15.0" top="3.0" />
+               </HBox.margin>
+            </Button>
+         </children>
+      </HBox>
+   </bottom>
+   <center>
+      <TableView fx:id="tableView" BorderPane.alignment="CENTER">
+        <columns>
+          <TableColumn fx:id="firstNameCol" prefWidth="200.0" text="First name" />
+          <TableColumn fx:id="lastNameCol" prefWidth="200.0" text="Last name" />
+            <TableColumn fx:id="groupCol" prefWidth="100.0" text="Group" />
+            <TableColumn fx:id="presentCol" prefWidth="100.0" text="Present" />
+        </columns>
+      </TableView>
+   </center>
+</BorderPane>
